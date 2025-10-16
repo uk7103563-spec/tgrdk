@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Algorithmic Systemic Risk Stress-Tester (DebtRank)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+<body class="app-body p-4 sm:p-8">
+
+  <div class="max-w-7xl mx-auto">
+    <header class="mb-8 p-4 bg-slate-900/50 rounded-xl card shadow-xl">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-cyan-400 tracking-tight">Systemic Risk Stress-Tester <span class="text-lg sm:text-xl text-slate-500">(DebtRank)</span></h1>
+      <p class="text-slate-400 mt-1 text-base sm:text-lg">Analyze cascading financial failures across interbank networks.</p>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+      <div class="lg:col-span-1 space-y-6 order-2">
+        <div class="card p-6 rounded-xl">
+          <h2 class="text-xl font-semibold mb-4 text-cyan-300 border-b border-cyan-700/50 pb-2">Simulation Controls</h2>
+
+          <div class="mb-4">
+            <label for="shockType" class="block text-sm font-medium text-slate-300 mb-1">Select Shock Scenario</label>
+            <select id="shockType" class="w-full p-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:ring-cyan-500 focus:border-cyan-500 transition duration-150 shadow-inner">
+              <option value="macro">1. Macro Shock (20% Asset Drop)</option>
+              <option value="targeted">2. Targeted Failure (Specific Bank)</option>
+              <option value="random">3. Random Failures (10% of Banks)</option>
+            </select>
+          </div>
+
+          <div class="mb-6 hidden" id="targetedBankControl">
+            <label for="targetedBankId" class="block text-sm font-medium text-slate-300 mb-1">Target Institution</label>
+            <select id="targetedBankId" class="w-full p-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:ring-cyan-500 focus:border-cyan-500 transition duration-150 shadow-inner">
+              </select>
+          </div>
+
+          <div class="flex flex-col space-y-4">
+            <button id="generateBtn" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 shadow-lg shadow-cyan-900/50 uppercase tracking-wider">
+              1. Generate New Network (N=50)
+            </button>
+            <button id="simulateBtn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 shadow-lg shadow-red-900/50 disabled:opacity-50 uppercase tracking-wider">
+              2. Run Stress Test (Macro Shock)
+            </button>
+          </div>
+        </div>
+
+        <div class="card p-6 rounded-xl">
+          <h2 class="text-xl font-semibold mb-4 text-cyan-300 border-b border-cyan-700/50 pb-2">System Impact Summary</h2>
+          <div class="space-y-3 text-base">
+            <div class="flex justify-between border-b border-slate-800 pb-1">
+              <span class="text-slate-400">Total Institutions:</span>
+              <span id="metricTotal" class="font-bold text-cyan-300">0</span>
+            </div>
+            <div class="flex justify-between border-b border-slate-800 pb-1">
+              <span class="text-slate-400">Total Failures:</span>
+              <span id="metricFailures" class="font-bold text-red-500 text-xl">0</span>
+            </div>
+            <div class="flex justify-between border-b border-slate-800 pb-1">
+              <span class="text-slate-400">Contagion Index (CI):</span>
+              <span id="metricContagion" class="font-bold text-yellow-400 text-xl">0.00%</span>
+            </div>
+            <div class="flex justify-between pt-2">
+              <span class="text-slate-300 font-semibold">Total Capital Lost:</span>
+              <span id="metricLoss" class="font-extrabold text-red-600 text-lg">--</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3 order-1">
+        <div id="network-container" class="card p-2 sm:p-4 rounded-xl relative aspect-video lg:h-[600px] flex items-center justify-center">
+            <h2 class="absolute top-4 left-6 text-xl font-semibold text-cyan-300">Interbank Network (Click Node for Details)</h2>
+            <svg id="network-svg" class="w-full h-full"></svg>
+            <p id="network-placeholder" class="text-slate-500 absolute text-lg">Click 'Generate New Network' to begin the simulation.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-8">
+      <div class="card p-4 sm:p-6 rounded-xl">
+        <h2 class="text-xl font-semibold mb-4 text-cyan-300 border-b border-cyan-700/50 pb-2">Detailed Institution Metrics (Post-Shock)</h2>
+        <div class="overflow-x-auto max-w-full">
+          <table class="min-w-full divide-y divide-slate-700">
+            <thead>
+              <tr class="text-left text-xs font-medium text-slate-300 uppercase tracking-wider bg-slate-800/50">
+                <th class="py-3 px-4 whitespace-nowrap">ID</th>
+                <th class="py-3 px-4 whitespace-nowrap">Initial Capital</th>
+                <th class="py-3 px-4 whitespace-nowrap">Post-Shock Capital</th>
+                <th class="py-3 px-4 whitespace-nowrap">**DebtRank** (Score)</th>
+                <th class="py-3 px-4 whitespace-nowrap">Status</th>
+                <th class="py-3 px-4 whitespace-nowrap">Connectivity (In/Out)</th>
+              </tr>
+            </thead>
+            <tbody id="metricsBody" class="divide-y divide-slate-800 text-sm">
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="bankDetailsModal" class="modal-overlay" onclick="closeModal(event)">
+      <div class="modal-content card" onclick="event.stopPropagation()">
+          <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition duration-150">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+          </button>
+          <div id="bankDetailsContent">
+              </div>
+      </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+[
+  {
+    "event": "SERVER_START",
+    "message": "Stress Tester server initialized on port 3000",
+    "time": "2025-10-16T08:47:47.935Z",
+    "ip": "::1",
+    "userAgent": "Server-Generated-Log"
+  },
+  {
+    "event": "DOWNLOAD_ATTEMPT",
+    "note": "User clicked download in modal",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9728512,
+    "lon": 77.6077312,
+    "time": "2025-10-16T07:00:42.208Z",
+    "ip": "::1"
+  },
+  {
+    "event": "VIEW_PROFILE",
+    "profileId": "BX-1006",
+    "profileName": "ADA Fund 7",
+    "price": "$0.397503",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9728512,
+    "lon": 77.6077312,
+    "time": "2025-10-16T07:00:41.389Z",
+    "ip": "::1"
+  },
+  {
+    "event": "VIEW_PROFILE",
+    "profileId": "BX-1003",
+    "profileName": "USDC Fund 4",
+    "price": "$48.26",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9728512,
+    "lon": 77.6077312,
+    "time": "2025-10-16T07:00:40.134Z",
+    "ip": "::1"
+  },
+  {
+    "event": "VIEW_PROFILE",
+    "profileId": "BX-1000",
+    "profileName": "BTC Fund 1",
+    "price": "$32,839.88",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9728512,
+    "lon": 77.6077312,
+    "time": "2025-10-16T07:00:38.191Z",
+    "ip": "::1"
+  },
+  {
+    "event": "LOCATION_SUCCESS",
+    "lat": 12.9728512,
+    "lon": 77.6077312,
+    "note": "Precise location obtained.",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "time": "2025-10-16T07:00:37.484Z",
+    "ip": "::1"
+  },
+  {
+    "event": "ACTION",
+    "profileId": "BX-1009",
+    "profileName": "AVAX Fund 10",
+    "action": "history",
+    "kyc": "Verified",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9728512,
+    "lon": 77.6077312,
+    "time": "2025-10-16T06:57:43.740Z",
+    "ip": "::1"
+  },
+  {
+    "event": "VIEW_PROFILE",
+    "profileId": "BX-1003",
+    "profileName": "USDC Fund 4",
+    "price": "$68.24",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9728512,
+    "lon": 77.6077312,
+    "time": "2025-10-16T06:57:42.237Z",
+    "ip": "::1"
+  },
+  {
+    "event": "VIEW_PROFILE",
+    "profileId": "BX-1001",
+    "profileName": "ETH Fund 2",
+    "price": "$1,409.67",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9728512,
+    "lon": 77.6077312,
+    "time": "2025-10-16T06:57:40.069Z",
+    "ip": "::1"
+  },
+  {
+    "event": "LOCATION_SUCCESS",
+    "lat": 12.9728512,
+    "lon": 77.6077312,
+    "note": "Precise location obtained.",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "time": "2025-10-16T06:57:38.148Z",
+    "ip": "::1"
+  },
+  {
+    "event": "REFRESH",
+    "note": "User refreshed data",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9564672,
+    "lon": 77.6208384,
+    "time": "2025-10-16T06:31:28.936Z",
+    "ip": "::1"
+  },
+  {
+    "event": "REFRESH",
+    "note": "User refreshed data",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9564672,
+    "lon": 77.6208384,
+    "time": "2025-10-16T06:31:28.713Z",
+    "ip": "::1"
+  },
+  {
+    "event": "REFRESH",
+    "note": "User refreshed data",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9564672,
+    "lon": 77.6208384,
+    "time": "2025-10-16T06:31:28.552Z",
+    "ip": "::1"
+  },
+  {
+    "event": "REFRESH",
+    "note": "User refreshed data",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9564672,
+    "lon": 77.6208384,
+    "time": "2025-10-16T06:31:27.938Z",
+    "ip": "::1"
+  },
+  {
+    "event": "REFRESH",
+    "note": "User refreshed data",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9564672,
+    "lon": 77.6208384,
+    "time": "2025-10-16T06:31:27.721Z",
+    "ip": "::1"
+  },
+  {
+    "event": "REFRESH",
+    "note": "User refreshed data",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9564672,
+    "lon": 77.6208384,
+    "time": "2025-10-16T06:31:27.583Z",
+    "ip": "::1"
+  },
+  {
+    "event": "REFRESH",
+    "note": "User refreshed data",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9564672,
+    "lon": 77.6208384,
+    "time": "2025-10-16T06:31:27.427Z",
+    "ip": "::1"
+  },
+  {
+    "event": "VIEW_PROFILE",
+    "profileId": "BX-1006",
+    "profileName": "ADA Fund 7",
+    "price": "$0.215777",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9564672,
+    "lon": 77.6208384,
+    "time": "2025-10-16T06:31:24.593Z",
+    "ip": "::1"
+  },
+  {
+    "event": "ACTION",
+    "profileId": "BX-1003",
+    "profileName": "USDC Fund 4",
+    "action": "history",
+    "kyc": "Verified",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9564672,
+    "lon": 77.6208384,
+    "time": "2025-10-16T06:31:21.287Z",
+    "ip": "::1"
+  },
+  {
+    "event": "ACTION",
+    "profileId": "BX-1001",
+    "profileName": "ETH Fund 2",
+    "action": "price",
+    "price": "$3,505.54",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9564672,
+    "lon": 77.6208384,
+    "time": "2025-10-16T06:31:17.899Z",
+    "ip": "::1"
+  },
+  {
+    "event": "VIEW_PROFILE",
+    "profileId": "BX-1001",
+    "profileName": "ETH Fund 2",
+    "price": "$3,505.54",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "lat": 12.9564672,
+    "lon": 77.6208384,
+    "time": "2025-10-16T06:31:14.184Z",
+    "ip": "::1"
+  },
+  {
+    "event": "LOCATION_SUCCESS",
+    "lat": 12.9564672,
+    "lon": 77.6208384,
+    "note": "Precise location obtained.",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+    "time": "2025-10-16T06:31:13.243Z",
+    "ip": "::1"
+  },
+  {
+    "event": "REFRESH",
+    "note": "User refreshed data",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+    "time": "2025-10-08T06:28:06.574Z",
+    "ip": "::1"
+  },
+  {
+    "event": "VIEW_PROFILE",
+    "profileId": "BX-1020",
+    "profileName": "CHZ Fund 21",
+    "price": "$173.77",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+    "time": "2025-10-08T06:28:00.952Z",
+    "ip": "::1"
+  },
+  {
+    "event": "VIEW_PROFILE",
+    "profileId": "BX-1015",
+    "profileName": "LTC Fund 16",
+    "price": "$23.54",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+    "time": "2025-10-08T06:27:57.784Z",
+    "ip": "::1"
+  },
+  {
+    "event": "ACTION",
+    "profileId": "BX-1002",
+    "profileName": "USDT Fund 3",
+    "action": "bills",
+    "receiptCount": 3,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+    "time": "2025-10-08T06:27:52.701Z",
+    "ip": "::1"
+  },
+  {
+    "event": "LOCATION_FAIL",
+    "error": 1,
+    "message": "User denied Geolocation",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+    "time": "2025-10-08T06:27:47.875Z",
+    "ip": "::1"
+  },
+  {
+    "event": "ACTION",
+    "profileId": "BX-1001",
+    "profileName": "ETH Fund 2",
+    "action": "price",
+    "price": "$2,138.12",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+    "time": "2025-10-08T06:08:11.608Z",
+    "ip": "::1"
+  },
+  {
+    "event": "LOCATION_FAIL",
+    "error": 1,
+    "message": "User denied Geolocation",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+    "time": "2025-10-08T06:07:50.747Z",
+    "ip": "::1"
+  },
+  {
+    "event": "LOCATION_FAIL",
+    "error": 1,
+    "message": "User denied Geolocation",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+    "time": "2025-10-08T06:07:28.546Z",
+    "ip": "::1"
+  },
+  {
+    "event": "LOCATION_SUCCESS",
+    "lat": 12.9466368,
+    "lon": 77.6175616,
+    "note": "Precise location obtained.",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+    "time": "2025-10-08T06:06:53.910Z",
+    "ip": "::1"
+  },
+  {
+    "event": "LOCATION_FAIL",
+    "error": 1,
+    "message": "User denied Geolocation",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+    "time": "2025-10-08T06:06:44.840Z",
+    "ip": "::1"
+  }
+]

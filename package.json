@@ -1,0 +1,23 @@
+{
+  "name": "algorithmic-systemic-risk-stress-tester",
+  "version": "1.0.0",
+  "description": "A network simulation tool for modeling financial systemic risk using the DebtRank algorithm.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "fintech",
+    "ai",
+    "systemic-risk",
+    "network-simulation",
+    "d3",
+    "debtrank"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}

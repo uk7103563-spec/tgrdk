@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Access</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-body">
+
+<div id="wrapper" class="container-wrapper">
+    <div id="wave-container" class="wave-container">
+        <div class="wave-layer-3"></div>
+        <div class="wave-layer-4"></div>
+    </div>
+
+    <div id="warp-effect" class="warp-effect">
+        <div class="warp-ring"></div>
+    </div>
+
+    <div id="welcome-screen" class="card-transition absolute flex flex-col items-center cursor-pointer text-white" onclick="showLoginPage()">
+        <div id="entry-sphere" class="entry-sphere mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16l4-4-4-4"/>
+                <path d="M8 12h8"/>
+            </svg>
+        </div>
+        <p class="text-xl font-medium tracking-wider text-indigo-300">Click to Access</p>
+    </div>
+
+    <div id="login-form-screen" class="card-transition absolute p-6 sm:p-10 w-11/12 max-w-lg login-card" style="opacity: 0; transform: scale(0.7) rotateZ(-3deg); pointer-events: none;">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white text-center mb-3 tracking-wide">NETWORK LOGIN</h2>
+        <p class="text-center text-slate-200 mb-8 text-lg">Secure Portal</p>
+
+        <form id="login-form" onsubmit="handleLogin(event)">
+            <div class="mb-6">
+                <label for="username" class="block text-sm font-medium text-white mb-2">User ID</label>
+                <input type="text" id="username" name="username" required
+                       class="w-full rounded-xl focus:outline-none input-glow transition duration-300 input-glass"
+                       placeholder="Enter Your ID">
+            </div>
+
+            <div class="mb-8">
+                <label for="password" class="block text-sm font-medium text-white mb-2">Password</label>
+                <input type="password" id="password" name="password" required
+                       class="w-full rounded-xl focus:outline-none input-glow transition duration-300 input-glass"
+                       placeholder="********">
+            </div>
+
+            <div id="message-box" class="h-6 mb-6 text-center text-sm font-semibold"></div>
+
+            <button type="submit"
+                    class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-xl
+                           shadow-2xl shadow-indigo-900/80 transition duration-300 transform hover:scale-[1.01] active:scale-[0.98]">
+                Authorize Access
+            </button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    // Configuration
+    const CORRECT_ID = "hunters";
+    const CORRECT_PASS = "tdk";
+
+    // DOM Elements
+    const DOM = {
+        welcomeScreen: document.getElementById('welcome-screen'),
+        loginFormScreen: document.getElementById('login-form-screen'),
+        entrySphere: document.getElementById('entry-sphere'),
+        wrapper: document.getElementById('wrapper'),
+        warpEffect: document.getElementById('warp-effect'),
+        messageBox: document.getElementById('message-box'),
+        passwordField: document.getElementById('password')
+    };
+
+    /**
+     * Handles the transition from the welcome screen to the login form.
+     */
+    function showLoginPage() {
+        DOM.entrySphere.classList.add('sphere-fade-out');
+        DOM.warpEffect.classList.add('active-warp');
+
+        setTimeout(() => {
+            DOM.welcomeScreen.style.display = 'none';
+        }, 500);
+
+        setTimeout(() => {
+            DOM.warpEffect.classList.remove('active-warp');
+            DOM.loginFormScreen.style.opacity = '1';
+            DOM.loginFormScreen.style.transform = 'scale(1) rotateZ(0deg)';
+            DOM.loginFormScreen.style.pointerEvents = 'auto';
+            document.getElementById('username').focus();
+        }, 900);
+    }
+
+    /**
+     * Displays a temporary login message.
+     */
+    function displayMessage(text, type) {
+        DOM.messageBox.textContent = text;
+        DOM.messageBox.classList.remove('text-red-400', 'text-green-400');
+        if (type === 'error') {
+            DOM.messageBox.classList.add('text-red-400');
+        } else if (type === 'success') {
+            DOM.messageBox.classList.add('text-green-400');
+        }
+    }
+
+    /**
+     * Handles the login form submission and authentication.
+     */
+    function handleLogin(event) {
+        event.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = DOM.passwordField.value;
+
+        displayMessage('', '');
+
+        if (username === CORRECT_ID && password === CORRECT_PASS) {
+            // SUCCESS
+            displayMessage("Access Granted! Redirecting...", 'success');
+            DOM.loginFormScreen.style.transform = 'scale(1.2) rotateZ(3deg)';
+            DOM.loginFormScreen.style.opacity = '0';
+            DOM.wrapper.querySelector('.wave-container').style.filter = 'hue-rotate(-20deg) brightness(1.2)';
+
+            setTimeout(() => {
+                window.location.href = 'app.html';
+            }, 1000);
+
+        } else {
+            // ERROR
+            displayMessage("Login failed. Check credentials.", 'error');
+            DOM.wrapper.classList.add('error-state');
+            DOM.passwordField.value = '';
+
+            setTimeout(() => {
+                DOM.wrapper.classList.remove('error-state');
+                setTimeout(() => {
+                    displayMessage('', '');
+                }, 1000);
+            }, 3000);
+        }
+    }
+</script>
+
+</body>
+</html>

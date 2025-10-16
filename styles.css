@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* --- Configuration Variables --- */
+:root {
+    --wave-color-1: #1a335a; /* Deep Ocean Blue */
+    --wave-color-2: #1c73a0; /* Cyan/Icy Blue */
+    --error-color: 255, 69, 0; /* Orange-Red for error flash */
+    --bg-dark: #0f172a; /* Deep Slate Blue */
+    --accent-indigo: #4f46e5;
+    --warp-color-3: #ffffff; /* White for innermost ring */
+
+    /* App Styles */
+    --app-bg-start: #020617; /* Dark Slate */
+    --app-bg-end: #01040f; /* Near Black */
+    --app-border-color: rgba(6, 182, 212, 0.15); /* Cyan Border */
+}
+
+/* ----------------------------- */
+/* 1. Base/Shared Styles */
+/* ----------------------------- */
+body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+.mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+}
+
+/* ----------------------------- */
+/* 2. Login Page Styles (index.html) */
+/* ----------------------------- */
+.login-body {
+    background-color: var(--bg-dark);
+    transition: background-color 0.5s ease;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.container-wrapper {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* Mirror-Glass Morphism */
+.login-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.7);
+    transition: all 0.5s ease;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+}
+
+/* Inner Reflection Highlight */
+.login-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 40%);
+    pointer-events: none;
+}
+
+.input-glass {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+}
+
+.input-glow:focus {
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.7);
+    border-color: var(--accent-indigo);
+}
+
+
+/* --- Wave Effect Animations --- */
+.wave-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    transition: background-image 0.5s, filter 0.5s;
+}
+
+@keyframes wave-motion-fast {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 1000px; }
+}
+@keyframes wave-motion-slow {
+    0% { background-position: 0 0; }
+    100% { background-position: 500px 500px; }
+}
+
+.wave-container::before,
+.wave-container::after,
+.wave-container > .wave-layer-3,
+.wave-container > .wave-layer-4 {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: repeat;
+}
+.wave-container > .wave-layer-3, .wave-container > .wave-layer-4 { content: initial; }
+
+.wave-container::before {
+    background-image: radial-gradient(circle at 100px 100px, var(--wave-color-2) 1%, transparent 1%), radial-gradient(circle at 400px 400px, var(--wave-color-2) 1%, transparent 1%);
+    background-size: 200px 200px;
+    animation: wave-motion-fast 12s linear infinite;
+    opacity: 0.9;
+}
+
+.wave-container::after {
+    background-image: radial-gradient(circle at 200px 200px, var(--wave-color-1) 1%, transparent 1%), radial-gradient(circle at 600px 600px, var(--wave-color-1) 1%, transparent 1%);
+    background-size: 300px 300px;
+    animation: wave-motion-slow 20s linear infinite;
+    opacity: 0.7;
+}
+
+.wave-container > .wave-layer-3 {
+    background-image: radial-gradient(circle at 300px 300px, var(--wave-color-2) 1%, transparent 1%), radial-gradient(circle at 800px 800px, var(--wave-color-2) 1%, transparent 1%);
+    background-size: 450px 450px;
+    animation: wave-motion-fast 30s linear infinite reverse;
+    opacity: 0.4;
+}
+
+.wave-container > .wave-layer-4 {
+    background-image: radial-gradient(circle at 500px 500px, var(--wave-color-1) 1%, transparent 1%), radial-gradient(circle at 1000px 1000px, var(--wave-color-1) 1%, transparent 1%);
+    background-size: 600px 600px;
+    animation: wave-motion-slow 40s linear infinite;
+    opacity: 0.2;
+}
+
+/* Error State */
+.error-state .wave-container {
+    filter: hue-rotate(-120deg) saturate(3) brightness(1.5);
+    animation: wave-shake 0.5s;
+}
+
+@keyframes wave-shake {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.01) rotate(0.1deg); }
+}
+
+.error-state .login-card {
+    border: 2px solid rgba(var(--error-color), 0.8) !important;
+    box-shadow: 0 0 40px rgba(var(--error-color), 0.8) !important;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0) scale(1) rotateZ(0deg) !important; }
+    20%, 60% { transform: translateX(-15px) scale(1) rotateZ(0deg) !important; }
+    40%, 80% { transform: translateX(15px) scale(1) rotateZ(0deg) !important; }
+}
+
+/* Warp Effect */
+.warp-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    z-index: 100;
+}
+
+.warp-effect::before,
+.warp-effect::after,
+.warp-effect > .warp-ring {
+    content: "";
+    position: absolute;
+    top: -5000px;
+    left: -5000px;
+    width: 10000px;
+    height: 10000px;
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 0;
+}
+.warp-effect > .warp-ring { content: initial; }
+
+
+.warp-effect.active-warp .warp-ring {
+    background-color: var(--warp-color-3);
+    animation: multi-ring-burst 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    animation-delay: 0s;
+}
+.warp-effect.active-warp::before {
+    background-color: var(--wave-color-2);
+    animation: multi-ring-burst 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    animation-delay: 0.15s;
+}
+.warp-effect.active-warp::after {
+    background-color: var(--accent-indigo);
+    animation: multi-ring-burst 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes multi-ring-burst {
+    0% { opacity: 1; transform: scale(0.01); }
+    50% { opacity: 0.8; transform: scale(0.1); }
+    100% { opacity: 0; transform: scale(1); }
+}
+
+/* Entry Sphere */
+.entry-sphere {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: var(--accent-indigo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 40px rgba(var(--wave-color-2), 0.8);
+    animation: pulse-sphere 3s infinite ease-in-out;
+    transition: all 0.7s;
+}
+.entry-sphere:hover {
+     transform: scale(1.05);
+     box-shadow: 0 0 50px rgba(var(--wave-color-2), 1);
+}
+
+@keyframes pulse-sphere {
+    0% { box-shadow: 0 0 30px rgba(79, 70, 229, 0.7); }
+    50% { box-shadow: 0 0 50px rgba(79, 70, 229, 1.0); }
+    100% { box-shadow: 0 0 30px rgba(79, 70, 229, 0.7); }
+}
+
+.sphere-fade-out {
+    opacity: 0;
+    transform: scale(0.1) rotateZ(360deg) !important;
+}
+
+/* ----------------------------- */
+/* 3. App Page Styles (app.html) */
+/* ----------------------------- */
+.app-body {
+    background: linear-gradient(180deg, var(--app-bg-start), var(--app-bg-end));
+    color: #e2e8f0;
+    overflow-x: hidden;
+}
+
+.card {
+    /* Modern Glass/Shadow Effect */
+    background: rgba(2, 6, 23, 0.8);
+    border: 1px solid var(--app-border-color);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(6, 182, 212, 0.08);
+    transition: all 0.3s ease-in-out;
+}
+.card:hover {
+    border-color: rgba(6, 182, 212, 0.3);
+    transform: translateY(-2px);
+}
+
+/* D3 Visualization Styling */
+#network-svg .link {
+    stroke-width: 1.5px;
+    transition: stroke-width 0.5s, stroke 0.5s;
+}
+#network-svg .node {
+    stroke-width: 3px;
+    cursor: pointer;
+    transition: fill 0.8s, stroke 0.8s, r 0.5s;
+}
+
+/* Tooltip Style (for hover) */
+.tooltip {
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(6, 182, 212, 0.4);
+}
+
+/* Custom Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.modal-content {
+    max-width: 95%;
+    max-height: 95vh;
+    width: 650px;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    position: relative;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: transform 0.3s ease-in-out;
+}
+.modal-overlay.open {
+    display: flex;
+    opacity: 1;
+}
+.modal-overlay.open .modal-content {
+    transform: scale(1);
+}
+
+/* Responsive Layout Adjustments */
+@media (max-width: 1024px) {
+    /* Ensure the grid stacks vertically on tablets/mobile */
+    .lg\:grid-cols-4 {
+        grid-template-columns: 1fr;
+    }
+}
